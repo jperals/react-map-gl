@@ -280,12 +280,12 @@ test('renders with tileBoundaries', () => {
   expect(map.showTileBoundaries).toBe(false);
 });
 
-test('do not call onViewportChange if originalEvent is not present', () => {
+test('do not call onViewportChange if event is not passed to listener', () => {
   /* eslint-disable global-require */
   const mapboxgl = require('../../__mocks__/mapbox-gl');
   mapboxgl.Map.prototype.on = function on(_, listener, fn) {
     const handler = typeof listener === 'function' ? listener : fn;
-    handler({ target: this, originalEvent: false, point: { x: 0, y: 0 } });
+    handler();
   };
   jest.setMock('mapbox-gl', mapboxgl);
 

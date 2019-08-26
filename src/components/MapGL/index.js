@@ -469,7 +469,7 @@ class MapGL extends PureComponent<Props, State> {
    * @param {ViewportChangeEvent} event
    */
   _onViewportChange = (event: ViewportChangeEvent): void => {
-    if (!event.originalEvent) {
+    if (!event) {
       return;
     }
 
